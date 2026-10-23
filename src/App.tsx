@@ -13,7 +13,6 @@ import { ShareProblemPage } from './pages/ShareProblemPage';
 import { JoinNetworkPage } from './pages/JoinNetworkPage';
 import { ToolkitsPage } from './pages/ToolkitsPage';
 import { CommandPalette } from './components/CommandPalette';
-import { AmbientSpotlight } from './components/AmbientSpotlight';
 
 const getBase = () => {
   return (import.meta.env.BASE_URL || '/').replace(/\/$/, '');
@@ -113,7 +112,6 @@ export function App() {
 
   return (
     <div className="bg-[#090B10] text-[#F5F6FA] min-h-screen flex flex-col font-sans selection:bg-[#55E6D0]/20 selection:text-[#55E6D0] relative">
-      <AmbientSpotlight />
       <Navbar 
         currentPath={currentPath} 
         onNavigate={navigateTo} 

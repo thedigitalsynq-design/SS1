@@ -1,0 +1,10 @@
+name = "solutionsynq"
+compatibility_date = "2024-09-23"
+pages_build_output_dir = "./dist"
+
+# Free Cloudflare D1 Database Binding
+# Create your database in Cloudflare dashboard or with: npx wrangler d1 create solutionsynq-db
+[[d1_databases]]
+binding = "DB"
+database_name = "solutionsynq-db"
+database_id = "solutionsynq-db-id"

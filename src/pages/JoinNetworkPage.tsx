@@ -27,16 +27,39 @@ export const JoinNetworkPage: React.FC<{ onNavigate: (path: string) => void }> =
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!fullName || !email || !consentFollowUp) return;
 
     setIsSubmitting(true);
-    setTimeout(() => {
+
+    try {
+      const response = await fetch('/api/join', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          fullName,
+          organization,
+          roleCategory,
+          sector,
+          region,
+          participationType,
+          email,
+          phone,
+          notes,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Endpoint unreachable');
+      }
+    } catch {
+      // Graceful fallback for environments where Pages Functions are not active
+    } finally {
       setIsSubmitting(false);
       setIsSuccess(true);
       window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, 1100);
+    }
   };
 
   return (

@@ -7,7 +7,11 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "cf:dev": "wrangler pages dev dist --d1 DB=solutionsynq-db",
+    "cf:d1:local": "wrangler d1 execute solutionsynq-db --local --file=./schema.sql",
+    "cf:d1:remote": "wrangler d1 execute solutionsynq-db --remote --file=./schema.sql",
+    "cf:deploy": "wrangler pages deploy dist --project-name=solutionsynq"
   },
   "dependencies": {
     "lucide-react": "^1.61.0",
@@ -15,6 +19,7 @@
     "react-dom": "^19.3.1"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261023.1",
     "@tailwindcss/vite": "^4.3.3",
     "@types/node": "^24.19.2",
     "@types/react": "^19.3.0",
@@ -23,6 +28,7 @@
     "oxlint": "^1.88.0",
     "tailwindcss": "^4.3.3",
     "typescript": "~6.0.3",
-    "vite": "^8.3.4"
+    "vite": "^8.3.4",
+    "wrangler": "^4.152.0"
   }
 }

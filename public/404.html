@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>SolutionSynq</title>
+    <script>
+      // Single Page Apps for GitHub Pages
+      // Redirects 404s back to index.html with route preserved in query param
+      const pathSegmentsToKeep = 1; // /SS1/
+      const l = window.location;
+      const origin = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '');
+      const segments = l.pathname.split('/').filter(Boolean);
+      const repoName = segments[0] || 'SS1';
+      const targetRoute = '/' + segments.slice(pathSegmentsToKeep).join('/');
+
+      l.replace(
+        origin + '/' + repoName + '/?p=' + encodeURIComponent(targetRoute) +
+        (l.search ? '&' + l.search.slice(1) : '') +
+        l.hash
+      );
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
